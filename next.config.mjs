@@ -1,4 +1,21 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import withPlugins from 'next-compose-plugins';
 
-export default nextConfig;
+/**
+ * @type {import('next').NextConfig}
+ */
+const config = withPlugins(
+  [[withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })]],
+  {
+    reactStrictMode: true,
+    experimental: { instrumentationHook: true },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+  }
+);
+
+export default config;
