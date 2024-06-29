@@ -31,6 +31,7 @@
     "sort-imports": "off",
     "no-console": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/no-explicit-any": "warn"
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react/prop-types": [2, {"ignore": ["className", "variant","size", "sideOffset", "checked","value"]}]
   }
 }
